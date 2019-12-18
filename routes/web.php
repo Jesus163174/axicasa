@@ -24,4 +24,5 @@ Route::group(['prefix'=>'auth'],function(){
 Route::get('dashboard','HomeController@dashboard')->name('home');
 
 Route::resource('empleados','UsuarioController');
+Route::resource('inmuebles','InmuebleController');
 
