@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix'=>'auth'],function(){
+   Route::get('login','AuthController@formLogin')->name('loginForm');
+   Route::post('login','AuthController@login')->name('login');
+});
+
+Route::group(['prefix'=>'empleados'],function(){
+    Route::resource('/','UsuarioController');
+});
