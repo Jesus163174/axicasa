@@ -16,10 +16,12 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix'=>'auth'],function(){
-   Route::get('login','AuthController@formLogin')->name('loginForm');
-   Route::post('login','AuthController@login')->name('login');
+   Route::get('login','AuthController@formLogin')->name('loginForm')->middleware('guest');
+   Route::post('login','AuthController@login')->name('login')->middleware('guest');
+   Route::post('logout','AuthController@logout')->name('logout');
 });
 
-Route::group(['prefix'=>'empleados'],function(){
-    Route::resource('/','UsuarioController');
-});
+Route::get('dashboard','HomeController@dashboard')->name('home');
+
+Route::resource('empleados','UsuarioController');
+

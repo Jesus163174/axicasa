@@ -8,3 +8,12 @@
 .has-error-input{
     border:.5px solid red !important;
 }
+.label-activo{
+    background: #00aaaa;
+}
+.label-inactivo{
+    background: #9d1e15;
+}
+.form-inline{
+    display: inline-block;
+}

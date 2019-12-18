@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller{
 
+
+
     public function formLogin(){
         return view('auth.login');
     }
@@ -17,5 +19,9 @@ class AuthController extends Controller{
             return redirect('/dashboard');
         }
         return redirect('/auth/login')->withErrors(['email'=>trans('auth.failed')])->withInputs(request('email'));
+    }
+    public function logout(){
+        Auth::logout();
+        return redirect('auth/login');
     }
 }

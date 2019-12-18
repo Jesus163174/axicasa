@@ -8,6 +8,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    protected  $table = 'users';
     use Notifiable;
     protected $fillable = [
         'nombre','apellidos', 'email', 'password',
@@ -21,5 +22,12 @@ class User extends Authenticatable
 
     public function agregar($request){
         return User::create($request);
+    }
+    public function editar($usuario,$request){
+        return $usuario->fill($request)->save();
+    }
+
+    public function scopeUsers($query,$currentId){
+        return $query->where('id','<>',$currentId)->orderBy('created_at','desc');
     }
 }
