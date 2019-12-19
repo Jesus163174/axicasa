@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::group(['prefix'=>'auth'],function(){
    Route::get('login','AuthController@formLogin')->name('loginForm')->middleware('guest');
@@ -21,7 +18,10 @@ Route::group(['prefix'=>'auth'],function(){
    Route::post('logout','AuthController@logout')->name('logout');
 });
 
-Route::get('dashboard','HomeController@dashboard')->name('home');
+Route::get('dashboard','HomeController@dashboard')->name('dashboard');
+Route::get('/','HomeController@home');
+Route::get('detalle-inmueble/{id?}','HomeController@detalleInmueble');
+Route::get('inmubles-todos','HomeController@listaInmueble');
 
 Route::resource('empleados','UsuarioController');
 Route::resource('inmuebles','InmuebleController');
