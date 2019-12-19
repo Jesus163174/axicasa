@@ -17,3 +17,9 @@
 .form-inline{
     display: inline-block;
 }
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-wrap: wrap;
+}

@@ -26,3 +26,6 @@ Route::get('dashboard','HomeController@dashboard')->name('home');
 Route::resource('empleados','UsuarioController');
 Route::resource('inmuebles','InmuebleController');
 
+Route::get('inmuebles/caracteristicas/{inmuebleId}','InmuebleController@caracteristicas');
+Route::put('inmuebles/caracteristicas/{inmuebleId}','InmuebleController@agregarCaracteristicas');
+
